@@ -1,7 +1,7 @@
 ---
-title       : Assignment Course Project Slidify
+title       : Miles per hour to Kilometers per hour Conversion
 subtitle    : 
-author      : Shawn Kercher
+author      : Shawn K
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
@@ -11,21 +11,44 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## Read-And-Delete
+## Overview
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+The Purpose of this application is to convert MPH to Kilometers. This simple but powerful app helps anyone in need of a quick conversion of MPH to Kilometers. 
+
+--- .class #id 
+## Sample Code
+This shows how the calculation is being applied in the server.R file. 
+
+```{r, warning=FALSE}
+library(shiny)
+library(UsingR)
+
+mphToKilometers <- function(mph) {1.60934*(mph)}
+
+shinyServer(
+    function(input, output) {
+        output$inputValue <- renderPrint({input$mph})
+        output$prediction <- renderPrint({mphToKilometers(input$mph)})
+    }
+)
+```
 
 --- .class #id 
 
-## Slide 1
-hi slide 1
+## Screenshot of App
 
-## Slide 2
-hi slide 2
+```{r, out.width = 600, fig.retina = NULL, echo=FALSE}
+knitr::include_graphics("shiny.png")
+```
 
-## Slide 3
-hi slide 3
+--- .class #id 
 
+## Code
+Demostration of embedded R code that runs in slidify document
 
+```{r}
+x <- 78
+y <- x * 2
+print(y)
+
+```

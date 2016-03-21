@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Assignment Course Project Slidify</title>
+  <title>Miles per hour to Kilometers per hour Conversion</title>
   <meta charset="utf-8">
-  <meta name="description" content="Assignment Course Project Slidify">
-  <meta name="author" content="Shawn Kercher">
+  <meta name="description" content="Miles per hour to Kilometers per hour Conversion">
+  <meta name="author" content="Shawn K">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -31,9 +31,9 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Assignment Course Project Slidify</h1>
+    <h1>Miles per hour to Kilometers per hour Conversion</h1>
     <h2></h2>
-    <p>Shawn Kercher<br/></p>
+    <p>Shawn K<br/></p>
   </hgroup>
   <article></article>  
 </slide>
@@ -42,14 +42,10 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Overview</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <p>The Purpose of this application is to convert MPH to Kilometers. This simple but powerful app helps anyone in need of a quick conversion of MPH to Kilometers. </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -57,18 +53,53 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 1</h2>
+    <h2>Sample Code</h2>
   </hgroup>
   <article data-timings="">
-    <p>hi slide 1</p>
+    <p>This shows how the calculation is being applied in the server.R file. </p>
 
-<h2>Slide 2</h2>
+<pre><code class="r">library(shiny)
+library(UsingR)
 
-<p>hi slide 2</p>
+mphToKilometers &lt;- function(mph) {1.60934*(mph)}
 
-<h2>Slide 3</h2>
+shinyServer(
+    function(input, output) {
+        output$inputValue &lt;- renderPrint({input$mph})
+        output$prediction &lt;- renderPrint({mphToKilometers(input$mph)})
+    }
+)
+</code></pre>
 
-<p>hi slide 3</p>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Screenshot of App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="shiny.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="600" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Code</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Demostration of embedded R code that runs in slidify document</p>
+
+<pre><code class="r">x &lt;- 78
+y &lt;- x * 2
+print(y)
+</code></pre>
+
+<pre><code>## [1] 156
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -80,14 +111,26 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Overview'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 1'>
+        data-slide=2 title='Sample Code'>
          2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Screenshot of App'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Code'>
+         4
       </a>
     </li>
   </ul>
